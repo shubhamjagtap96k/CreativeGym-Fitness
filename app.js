@@ -129,7 +129,7 @@ const testimonialsData = [
         name: 'Sneha P.',
         type: 'Athlete',
         rating: 5,
-        quote: 'Best gym in Pune! The CrossFit rig and functional area have everything I need for competition prep.',
+        quote: 'Best gym in Sangamner! The CrossFit rig and functional area have everything I need for competition prep.',
         story: 'CrossFit competitor. Qualified for regional championships after training here for 18 months.'
     }
 ];
