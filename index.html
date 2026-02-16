@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Creative Gym & Fitness Club - Train Smarter. Live Stronger. Join 1,200+ members at Pune's premier fitness destination with 24/7 access, certified coaches, and world-class facilities.">
+    <meta name="keywords" content="gym, fitness, pune, personal training, group classes, crossfit, yoga, strength training">
+    <meta name="author" content="Creative Gym & Fitness Club">
+    
+    <!-- Open Graph / Social Media -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Creative Gym & Fitness Club - Train Smarter. Live Stronger.">
+    <meta property="og:description" content="Join 1,200+ members at Pune's premier fitness destination. 24/7 access, certified coaches, world-class facilities.">
+    <meta property="og:url" content="https://creativegym.fitness">
+    
+    <!-- Theme Color -->
+    <meta name="theme-color" content="#0F1115">
+    
+    <title>Creative Gym & Fitness Club | Train Smarter. Live Stronger.</title>
+    
+    <!-- Preconnect for Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Header / Navigation -->
+    <header class="header" id="header">
+        <nav class="nav container">
+            <div class="nav__logo">
+                <span class="logo__text">Creative Gym</span>
+                <span class="logo__accent">& Fitness</span>
+            </div>
+            
+            <div class="nav__menu" id="nav-menu">
+                <ul class="nav__list">
+                    <li class="nav__item"><a href="#home" class="nav__link active">Home</a></li>
+                    <li class="nav__item"><a href="#plans" class="nav__link">Plans</a></li>
+                    <li class="nav__item"><a href="#facilities" class="nav__link">Facilities</a></li>
+                    <li class="nav__item"><a href="#exercises" class="nav__link">Exercises</a></li>
+                    <li class="nav__item"><a href="#why-us" class="nav__link">Why Us</a></li>
+                    <li class="nav__item"><a href="#testimonials" class="nav__link">Reviews</a></li>
+                    <li class="nav__item"><a href="#contact" class="nav__link">Contact</a></li>
+                </ul>
+                
+                <button class="nav__close" id="nav-close" aria-label="Close menu">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <line x1="18" y1="6" x2="6" y2="18"></line>
+                        <line x1="6" y1="6" x2="18" y2="18"></line>
+                    </svg>
+                </button>
+            </div>
+            
+            <div class="nav__actions">
+                <button class="theme-toggle" id="theme-toggle" aria-label="Toggle theme">
+                    <svg class="theme-icon sun-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                    <svg class="theme-icon moon-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                </button>
+                
+                <button class="nav__toggle" id="nav-toggle" aria-label="Open menu">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <line x1="3" y1="12" x2="21" y2="12"></line>
+                        <line x1="3" y1="6" x2="21" y2="6"></line>
+                        <line x1="3" y1="18" x2="21" y2="18"></line>
+                    </svg>
+                </button>
+            </div>
+        </nav>
+    </header>
+
+    <main class="main">
+        <!-- Hero Section -->
+        <section class="hero section" id="home">
+            <div class="hero__bg"></div>
+            <div class="hero__container container">
+                <div class="hero__content">
+                    <h1 class="hero__title">
+                        <span class="hero__title-main">Creative Gym</span>
+                        <span class="hero__title-sub">& Fitness Club</span>
+                    </h1>
+                    <p class="hero__tagline">Train Smarter. Live Stronger.</p>
+                    <p class="hero__description">
+                        Transform your body and mind at Pune's premier fitness destination. 
+                        Join 1,200+ members who trust us with their fitness journey.
+                    </p>
+                    <div class="hero__buttons">
+                        <a href="#plans" class="btn btn--primary magnetic">Start Free Trial</a>
+                        <a href="#plans" class="btn btn--secondary">View Plans</a>
+                    </div>
+                </div>
+                
+                <div class="hero__stats">
+                    <div class="stat">
+                        <span class="stat__number" data-target="1200">0</span>
+                        <span class="stat__label">Active Members</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat__number" data-target="40">0</span>
+                        <span class="stat__label">Classes/Week</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat__number">24/7</span>
+                        <span class="stat__label">Access</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Plans Section -->
+        <section class="plans section" id="plans">
+            <div class="container">
+                <div class="section__header">
+                    <h2 class="section__title">Membership Plans</h2>
+                    <p class="section__subtitle">Choose the perfect plan for your fitness goals</p>
+                </div>
+                
+                <div class="price-toggle">
+                    <span class="price-toggle__label" data-period="monthly">Monthly</span>
+                    <button class="price-toggle__switch" id="price-toggle" aria-label="Toggle pricing period">
+                        <span class="price-toggle__slider"></span>
+                    </button>
+                    <span class="price-toggle__label" data-period="yearly">
+                        Yearly <span class="price-toggle__badge">Save 15%</span>
+                    </span>
+                </div>
+                
+                <div class="plans__grid" id="plans-grid">
+                    <!-- Plans will be rendered dynamically -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Facilities Section -->
+        <section class="facilities section" id="facilities">
+            <div class="container">
+                <div class="section__header">
+                    <h2 class="section__title">World-Class Facilities</h2>
+                    <p class="section__subtitle">Everything you need for the perfect workout</p>
+                </div>
+                
+                <div class="facilities__grid" id="facilities-grid">
+                    <!-- Facilities will be rendered dynamically -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Exercises Section -->
+        <section class="exercises section" id="exercises">
+            <div class="container">
+                <div class="section__header">
+                    <h2 class="section__title">Exercise Library</h2>
+                    <p class="section__subtitle">Explore our comprehensive workout catalog</p>
+                </div>
+                
+                <div class="exercise-filters" id="exercise-filters">
+                    <button class="filter-btn active" data-category="all">All</button>
+                    <button class="filter-btn" data-category="strength">Strength</button>
+                    <button class="filter-btn" data-category="cardio">Cardio</button>
+                    <button class="filter-btn" data-category="mobility">Mobility</button>
+                    <button class="filter-btn" data-category="hiit">HIIT</button>
+                </div>
+                
+                <div class="exercises__grid" id="exercises-grid">
+                    <!-- Exercises will be rendered dynamically -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Why Us Section -->
+        <section class="why-us section" id="why-us">
+            <div class="container">
+                <div class="section__header">
+                    <h2 class="section__title">Why Choose Us</h2>
+                    <p class="section__subtitle">We're committed to your success</p>
+                </div>
+                
+                <div class="why-us__grid" id="why-us-grid">
+                    <!-- Why Us cards will be rendered dynamically -->
+                </div>
+                
+                <div class="stats-counter">
+                    <div class="counter-item">
+                        <span class="counter-number" data-target="87">0</span>
+                        <span class="counter-suffix">%</span>
+                        <p class="counter-label">Member Satisfaction</p>
+                    </div>
+                    <div class="counter-item">
+                        <span class="counter-number" data-target="42">0</span>
+                        <span class="counter-suffix">%</span>
+                        <p class="counter-label">Avg. PR Increase</p>
+                    </div>
+                    <div class="counter-item">
+                        <span class="counter-number" data-target="94">0</span>
+                        <span class="counter-suffix">%</span>
+                        <p class="counter-label">Attendance Consistency</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Testimonials Section -->
+        <section class="testimonials section" id="testimonials">
+            <div class="container">
+                <div class="section__header">
+                    <h2 class="section__title">Member Success Stories</h2>
+                    <p class="section__subtitle">Real results from real people</p>
+                </div>
+                
+                <div class="testimonials__carousel" id="testimonials-carousel">
+                    <button class="carousel__btn carousel__btn--prev" aria-label="Previous testimonial">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <polyline points="15 18 9 12 15 6"></polyline>
+                        </svg>
+                    </button>
+                    
+                    <div class="carousel__track-container">
+                        <div class="carousel__track" id="carousel-track">
+                            <!-- Testimonials will be rendered dynamically -->
+                        </div>
+                    </div>
+                    
+                    <button class="carousel__btn carousel__btn--next" aria-label="Next testimonial">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <polyline points="9 18 15 12 9 6"></polyline>
+                        </svg>
+                    </button>
+                    
+                    <div class="carousel__dots" id="carousel-dots">
+                        <!-- Dots will be rendered dynamically -->
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section class="contact section" id="contact">
+            <div class="container">
+                <div class="section__header">
+                    <h2 class="section__title">Get In Touch</h2>
+                    <p class="section__subtitle">Visit us or drop a message</p>
+                </div>
+                
+                <div class="contact__grid">
+                    <div class="contact__info">
+                        <div class="info-card">
+                            <div class="info-card__icon">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                                    <circle cx="12" cy="10" r="3"></circle>
+                                </svg>
+                            </div>
+                            <div class="info-card__content">
+                                <h3>Location</h3>
+                                <p>Creative Gym & Fitness Club<br>FC Road, Pune, MH 411004</p>
+                            </div>
+                        </div>
+                        
+                        <div class="info-card">
+                            <div class="info-card__icon">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+                                </svg>
+                            </div>
+                            <div class="info-card__content">
+                                <h3>Phone</h3>
+                                <p>+91 98765 43210</p>
+                            </div>
+                        </div>
+                        
+                        <div class="info-card">
+                            <div class="info-card__icon">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                                    <polyline points="22,6 12,13 2,6"></polyline>
+                                </svg>
+                            </div>
+                            <div class="info-card__content">
+                                <h3>Email</h3>
+                                <p>info@creativegym.fitness</p>
+                            </div>
+                        </div>
+                        
+                        <div class="info-card">
+                            <div class="info-card__icon">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <circle cx="12" cy="12" r="10"></circle>
+                                    <polyline points="12 6 12 12 16 14"></polyline>
+                                </svg>
+                            </div>
+                            <div class="info-card__content">
+                                <h3>Hours</h3>
+                                <p>Mon - Sun: 5:00 AM - 11:00 PM</p>
+                            </div>
+                        </div>
+                        
+                        <div class="map-placeholder">
+                            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='300'%3E%3Crect fill='%23222' width='400' height='300'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' fill='%23666' font-family='sans-serif' font-size='16'%3EMap Location%3C/text%3E%3C/svg%3E" alt="Gym location map">
+                        </div>
+                    </div>
+                    
+                    <div class="contact__form-wrapper">
+                        <form class="contact__form" id="contact-form">
+                            <div class="form-group">
+                                <label for="name">Full Name</label>
+                                <input type="text" id="name" name="name" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="email">Email Address</label>
+                                <input type="email" id="email" name="email" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="goal">Fitness Goal</label>
+                                <select id="goal" name="goal" required>
+                                    <option value="">Select your goal</option>
+                                    <option value="weight-loss">Weight Loss</option>
+                                    <option value="muscle-gain">Muscle Gain</option>
+                                    <option value="strength">Strength Training</option>
+                                    <option value="endurance">Endurance</option>
+                                    <option value="general">General Fitness</option>
+                                </select>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="message">Message</label>
+                                <textarea id="message" name="message" rows="5" required></textarea>
+                            </div>
+                            
+                            <button type="submit" class="btn btn--primary btn--block">Send Message</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Social Section -->
+        <section class="social section">
+            <div class="container">
+                <h2 class="social__title">Follow Our Journey</h2>
+                <div class="social__links">
+                    <a href="https://instagram.com" class="social__link" aria-label="Instagram" target="_blank" rel="noopener">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                            <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                            <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" fill="none" stroke="#000" stroke-width="2"></path>
+                            <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" stroke="#000" stroke-width="2"></line>
+                        </svg>
+                    </a>
+                    <a href="https://youtube.com" class="social__link" aria-label="YouTube" target="_blank" rel="noopener">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z"></path>
+                            <polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02" fill="#000"></polygon>
+                        </svg>
+                    </a>
+                    <a href="https://facebook.com" class="social__link" aria-label="Facebook" target="_blank" rel="noopener">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
+                        </svg>
+                    </a>
+                    <a href="https://twitter.com" class="social__link" aria-label="X (Twitter)" target="_blank" rel="noopener">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"></path>
+                        </svg>
+                    </a>
+                    <a href="https://linkedin.com" class="social__link" aria-label="LinkedIn" target="_blank" rel="noopener">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
+                            <rect x="2" y="9" width="4" height="12"></rect>
+                            <circle cx="4" cy="4" r="2"></circle>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer__grid">
+                <div class="footer__col">
+                    <h3 class="footer__title">About Creative Gym</h3>
+                    <p class="footer__text">
+                        Pune's premier fitness destination since 2015. We're committed to helping you achieve your fitness goals with world-class facilities and expert guidance.
+                    </p>
+                    <div class="footer__social">
+                        <a href="#" aria-label="Instagram"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect></svg></a>
+                        <a href="#" aria-label="YouTube"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z"></path></svg></a>
+                        <a href="#" aria-label="Facebook"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg></a>
+                    </div>
+                </div>
+                
+                <div class="footer__col">
+                    <h3 class="footer__title">Quick Links</h3>
+                    <ul class="footer__links">
+                        <li><a href="#plans">Membership Plans</a></li>
+                        <li><a href="#facilities">Facilities</a></li>
+                        <li><a href="#exercises">Exercise Library</a></li>
+                        <li><a href="#testimonials">Success Stories</a></li>
+                        <li><a href="#contact">Contact Us</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer__col">
+                    <h3 class="footer__title">Policies</h3>
+                    <ul class="footer__links">
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms of Service</a></li>
+                        <li><a href="#">Refund Policy</a></li>
+                        <li><a href="#">Member Agreement</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer__col">
+                    <h3 class="footer__title">Newsletter</h3>
+                    <p class="footer__text">Get fitness tips and exclusive offers delivered to your inbox.</p>
+                    <form class="newsletter-form" id="newsletter-form">
+                        <input type="email" placeholder="Your email" required>
+                        <button type="submit" aria-label="Subscribe">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <line x1="5" y1="12" x2="19" y2="12"></line>
+                                <polyline points="12 5 19 12 12 19"></polyline>
+                            </svg>
+                        </button>
+                    </form>
+                </div>
+            </div>
+            
+            <div class="footer__bottom">
+                <p>&copy; 2026 Creative Gym & Fitness Club. All rights reserved.</p>
+                <p>Made with <span class="heart">♥</span> in Pune</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Exercise Modal -->
+    <div class="modal" id="exercise-modal" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+        <div class="modal__overlay"></div>
+        <div class="modal__content">
+            <button class="modal__close" aria-label="Close modal">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <line x1="18" y1="6" x2="6" y2="18"></line>
+                    <line x1="6" y1="6" x2="18" y2="18"></line>
+                </svg>
+            </button>
+            <div class="modal__body" id="modal-body">
+                <!-- Content will be injected dynamically -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Toast Notification -->
+    <div class="toast" id="toast" role="alert" aria-live="polite">
+        <div class="toast__icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polyline points="20 6 9 17 4 12"></polyline>
+            </svg>
+        </div>
+        <p class="toast__message"></p>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
