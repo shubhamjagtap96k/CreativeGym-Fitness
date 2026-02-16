@@ -10,8 +10,19 @@
 const plansData = [
     {
         name: 'Basic',
-        monthlyPrice: 999,
-        yearlyPrice: 10189,
+        image: 'data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" width="600" height="400" viewBox="0 0 600 400"%3E%3Cdefs%3E%3ClinearGradient id="grad1" x1="0%25" y1="0%25" x2="100%25" y2="100%25"%3E%3Cstop offset="0%25" style="stop-color:%234f46e5;stop-opacity:1" /%3E%3Cstop offset="100%25" style="stop-color:%2306b6d4;stop-opacity:1" /%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width="600" height="400" fill="url(%23grad1)"/%3E%3Ctext x="50%25" y="45%25" font-family="Arial, sans-serif" font-size="80" fill="white" text-anchor="middle" opacity="0.9"%3E🏋️%3C/text%3E%3Ctext x="50%25" y="65%25" font-family="Arial, sans-serif" font-size="24" font-weight="bold" fill="white" text-anchor="middle" opacity="0.8"%3EBasic Plan%3C/text%3E%3C/svg%3E',
+        tagline: 'Perfect for Self-Starters',
+        pricing: {
+            monthly: 999,
+            sixMonth: 5394,      // 10% off (999 * 6 * 0.9)
+            yearly: 10189,       // 15% off (999 * 12 * 0.85)
+            threeYear: 26973     // 25% off (999 * 36 * 0.75)
+        },
+        savings: {
+            sixMonth: 10,
+            yearly: 15,
+            threeYear: 25
+        },
         features: [
             '24/7 Gym Access',
             'Free Weights Zone',
@@ -20,13 +31,30 @@ const plansData = [
             'Mobile App Access',
             'Basic Progress Tracking'
         ],
+        exclusiveBenefits: [
+            'Flexible month-to-month option',
+            'No long-term commitment',
+            'Access to all basic equipment'
+        ],
         details: 'Perfect for self-motivated individuals who want access to quality equipment and facilities. Get started with your fitness journey at an affordable price.',
-        featured: false
+        featured: false,
+        badge: null
     },
     {
         name: 'Pro',
-        monthlyPrice: 1799,
-        yearlyPrice: 18350,
+        image: 'data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" width="600" height="400" viewBox="0 0 600 400"%3E%3Cdefs%3E%3ClinearGradient id="grad2" x1="0%25" y1="0%25" x2="100%25" y2="100%25"%3E%3Cstop offset="0%25" style="stop-color:%237c3aed;stop-opacity:1" /%3E%3Cstop offset="100%25" style="stop-color:%23ec4899;stop-opacity:1" /%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width="600" height="400" fill="url(%23grad2)"/%3E%3Ctext x="50%25" y="45%25" font-family="Arial, sans-serif" font-size="80" fill="white" text-anchor="middle" opacity="0.9"%3E💪%3C/text%3E%3Ctext x="50%25" y="65%25" font-family="Arial, sans-serif" font-size="24" font-weight="bold" fill="white" text-anchor="middle" opacity="0.8"%3EPro Plan%3C/text%3E%3C/svg%3E',
+        tagline: 'Most Popular Choice',
+        pricing: {
+            monthly: 1799,
+            sixMonth: 9715,      // 10% off
+            yearly: 18350,       // 15% off
+            threeYear: 48573     // 25% off
+        },
+        savings: {
+            sixMonth: 10,
+            yearly: 15,
+            threeYear: 25
+        },
         features: [
             'Everything in Basic',
             '8 Group Classes/Month',
@@ -36,13 +64,31 @@ const plansData = [
             'Priority Booking',
             'Advanced Analytics'
         ],
+        exclusiveBenefits: [
+            'Free fitness assessment (₹2,000 value)',
+            'Quarterly body composition analysis',
+            'Access to exclusive workshops',
+            'Guest pass (1 per month)'
+        ],
         details: 'Our most popular plan! Combines gym access with expert guidance through group classes and personal training. Ideal for those serious about results.',
-        featured: true
+        featured: true,
+        badge: 'Most Popular'
     },
     {
         name: 'Elite',
-        monthlyPrice: 2499,
-        yearlyPrice: 25490,
+        image: 'data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" width="600" height="400" viewBox="0 0 600 400"%3E%3Cdefs%3E%3ClinearGradient id="grad3" x1="0%25" y1="0%25" x2="100%25" y2="100%25"%3E%3Cstop offset="0%25" style="stop-color:%2310b981;stop-opacity:1" /%3E%3Cstop offset="100%25" style="stop-color:%2322d3ee;stop-opacity:1" /%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width="600" height="400" fill="url(%23grad3)"/%3E%3Ctext x="50%25" y="45%25" font-family="Arial, sans-serif" font-size="80" fill="white" text-anchor="middle" opacity="0.9"%3E👑%3C/text%3E%3Ctext x="50%25" y="65%25" font-family="Arial, sans-serif" font-size="24" font-weight="bold" fill="white" text-anchor="middle" opacity="0.8"%3EElite Plan%3C/text%3E%3C/svg%3E',
+        tagline: 'Ultimate Fitness Experience',
+        pricing: {
+            monthly: 2499,
+            sixMonth: 13495,     // 10% off
+            yearly: 25490,       // 15% off
+            threeYear: 67473     // 25% off
+        },
+        savings: {
+            sixMonth: 10,
+            yearly: 15,
+            threeYear: 25
+        },
         features: [
             'Everything in Pro',
             'Unlimited Group Classes',
@@ -53,10 +99,21 @@ const plansData = [
             'Premium Locker',
             'Exclusive Events Access'
         ],
+        exclusiveBenefits: [
+            'Dedicated personal trainer',
+            'Monthly InBody scan (₹1,500/scan value)',
+            'Complimentary sports massage (monthly)',
+            'VIP parking spot',
+            'Priority equipment access',
+            'Exclusive member events & challenges'
+        ],
         details: 'The ultimate fitness experience. Get unlimited access to all facilities, personalized coaching, and exclusive perks designed for peak performance.',
-        featured: false
+        featured: false,
+        badge: 'Best Value'
     }
 ];
+
+
 
 const facilitiesData = [
     { icon: '🏋️', name: 'Free Weights Zone', description: 'Complete range of dumbbells, barbells, and Olympic lifting platforms' },
@@ -167,7 +224,7 @@ const whyUsData = [
 // ============================================
 
 let currentTheme = localStorage.getItem('theme') || 'dark';
-let isPricingYearly = false;
+let currentDuration = 'monthly'; // 'monthly', 'sixMonth', 'yearly', 'threeYear'
 let currentExerciseFilter = 'all';
 let currentTestimonialIndex = 0;
 let testimonialInterval = null;
@@ -365,37 +422,98 @@ function animateCounter(element, target, duration) {
 function renderPlans() {
     const plansGrid = document.getElementById('plans-grid');
 
-    plansGrid.innerHTML = plansData.map(plan => `
+    plansGrid.innerHTML = plansData.map(plan => {
+        const currentPrice = plan.pricing[currentDuration];
+        const monthlyEquivalent = currentDuration === 'monthly' ? currentPrice : Math.floor(currentPrice / getDurationMonths(currentDuration));
+        const originalPrice = plan.pricing.monthly * getDurationMonths(currentDuration);
+        const savingsAmount = originalPrice - currentPrice;
+        const savingsPercent = plan.savings[currentDuration] || 0;
+
+        return `
         <div class="plan-card ${plan.featured ? 'featured' : ''}">
-            ${plan.featured ? '<span class="plan-badge">Best Value</span>' : ''}
-            <h3 class="plan-card__name">${plan.name}</h3>
-            <div class="plan-card__price">
-                <span class="price__currency">₹</span>
-                <span class="price__amount" data-monthly="${plan.monthlyPrice}" data-yearly="${plan.yearlyPrice}">
-                    ${plan.monthlyPrice}
-                </span>
-                <span class="price__period">/mo</span>
+            ${plan.badge ? `<span class="plan-badge">${plan.badge}</span>` : ''}
+            
+            <div class="plan-card__image">
+                <img src="${plan.image}" alt="${plan.name} Plan" loading="lazy">
+                ${savingsPercent > 0 ? `<div class="savings-badge">Save ${savingsPercent}%</div>` : ''}
             </div>
-            <ul class="plan-card__features">
-                ${plan.features.map(feature => `<li>${feature}</li>`).join('')}
-            </ul>
-            <button class="btn btn--primary btn--block">Start Now</button>
-            <div class="plan-card__accordion">
-                <button class="accordion__trigger" aria-expanded="false">
-                    <span>Learn More</span>
-                    <svg class="accordion__icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <polyline points="6 9 12 15 18 9"></polyline>
-                    </svg>
-                </button>
-                <div class="accordion__content">
-                    <p class="accordion__text">${plan.details}</p>
+            
+            <div class="plan-card__content">
+                <h3 class="plan-card__name">${plan.name}</h3>
+                <p class="plan-card__tagline">${plan.tagline}</p>
+                
+                <div class="plan-card__pricing">
+                    ${savingsPercent > 0 ? `
+                        <div class="price-comparison">
+                            <span class="price-original">₹${originalPrice.toLocaleString('en-IN')}</span>
+                            <span class="price-savings">You save ₹${savingsAmount.toLocaleString('en-IN')}</span>
+                        </div>
+                    ` : ''}
+                    
+                    <div class="plan-card__price">
+                        <span class="price__currency">₹</span>
+                        <span class="price__amount" data-plan="${plan.name}">${currentPrice.toLocaleString('en-IN')}</span>
+                        <span class="price__period">/${getDurationLabel(currentDuration)}</span>
+                    </div>
+                    
+                    ${currentDuration !== 'monthly' ? `
+                        <p class="price-monthly-equiv">₹${monthlyEquivalent.toLocaleString('en-IN')}/month</p>
+                    ` : ''}
+                </div>
+                
+                <ul class="plan-card__features">
+                    ${plan.features.map(feature => `<li>${feature}</li>`).join('')}
+                </ul>
+                
+                ${plan.exclusiveBenefits.length > 0 ? `
+                    <div class="plan-card__exclusive">
+                        <h4>Exclusive Benefits:</h4>
+                        <ul>
+                            ${plan.exclusiveBenefits.map(benefit => `<li>${benefit}</li>`).join('')}
+                        </ul>
+                    </div>
+                ` : ''}
+                
+                <button class="btn btn--primary btn--block">Start Now</button>
+                
+                <div class="plan-card__accordion">
+                    <button class="accordion__trigger" aria-expanded="false">
+                        <span>Learn More</span>
+                        <svg class="accordion__icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <polyline points="6 9 12 15 18 9"></polyline>
+                        </svg>
+                    </button>
+                    <div class="accordion__content">
+                        <p class="accordion__text">${plan.details}</p>
+                    </div>
                 </div>
             </div>
         </div>
-    `).join('');
+    `}).join('');
 
     // Initialize accordions
     initAccordions();
+}
+
+// Helper functions for duration calculations
+function getDurationMonths(duration) {
+    const months = {
+        monthly: 1,
+        sixMonth: 6,
+        yearly: 12,
+        threeYear: 36
+    };
+    return months[duration] || 1;
+}
+
+function getDurationLabel(duration) {
+    const labels = {
+        monthly: 'month',
+        sixMonth: '6 months',
+        yearly: 'year',
+        threeYear: '3 years'
+    };
+    return labels[duration] || 'month';
 }
 
 function initAccordions() {
@@ -413,31 +531,33 @@ function initAccordions() {
 }
 
 // ============================================
-// PRICE TOGGLE
+// DURATION SELECTOR
 // ============================================
 
 function initPriceToggle() {
-    const priceToggle = document.getElementById('price-toggle');
+    const durationButtons = document.querySelectorAll('.duration-btn');
 
-    priceToggle.addEventListener('click', () => {
-        isPricingYearly = !isPricingYearly;
-        priceToggle.classList.toggle('yearly');
-        updatePrices();
+    durationButtons.forEach(btn => {
+        btn.addEventListener('click', () => {
+            // Remove active class from all buttons
+            durationButtons.forEach(b => b.classList.remove('active'));
+
+            // Add active class to clicked button
+            btn.classList.add('active');
+
+            // Update current duration
+            currentDuration = btn.getAttribute('data-duration');
+
+            // Re-render plans with new pricing
+            renderPlans();
+        });
     });
 }
 
 function updatePrices() {
-    const priceAmounts = document.querySelectorAll('.price__amount');
-
-    priceAmounts.forEach(amount => {
-        const monthly = parseInt(amount.getAttribute('data-monthly'));
-        const yearly = parseInt(amount.getAttribute('data-yearly'));
-
-        const targetPrice = isPricingYearly ? Math.floor(yearly / 12) : monthly;
-
-        // Animate price change
-        animateCounter(amount, targetPrice, 500);
-    });
+    // This function is now handled by renderPlans()
+    // Keeping for backwards compatibility
+    renderPlans();
 }
 
 // ============================================

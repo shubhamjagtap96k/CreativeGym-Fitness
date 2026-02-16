@@ -139,14 +139,23 @@
                     <p class="section__subtitle">Choose the perfect plan for your fitness goals</p>
                 </div>
 
-                <div class="price-toggle">
-                    <span class="price-toggle__label" data-period="monthly">Monthly</span>
-                    <button class="price-toggle__switch" id="price-toggle" aria-label="Toggle pricing period">
-                        <span class="price-toggle__slider"></span>
+                <div class="duration-selector">
+                    <button class="duration-btn active" data-duration="monthly">
+                        <span class="duration-label">Monthly</span>
+                        <span class="duration-desc">Pay as you go</span>
                     </button>
-                    <span class="price-toggle__label" data-period="yearly">
-                        Yearly <span class="price-toggle__badge">Save 15%</span>
-                    </span>
+                    <button class="duration-btn" data-duration="sixMonth">
+                        <span class="duration-label">6 Months</span>
+                        <span class="duration-desc">Save 10%</span>
+                    </button>
+                    <button class="duration-btn" data-duration="yearly">
+                        <span class="duration-label">1 Year</span>
+                        <span class="duration-desc">Save 15%</span>
+                    </button>
+                    <button class="duration-btn" data-duration="threeYear">
+                        <span class="duration-label">3 Years</span>
+                        <span class="duration-desc">Save 25%</span>
+                    </button>
                 </div>
 
                 <div class="plans__grid" id="plans-grid">

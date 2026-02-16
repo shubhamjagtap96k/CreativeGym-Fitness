@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Test - Gym Plans</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+            background: #0F1115;
+            color: white;
+        }
+
+        .test-card {
+            background: #1A1D23;
+            border: 2px solid #333;
+            border-radius: 12px;
+            padding: 20px;
+            margin: 20px 0;
+            max-width: 400px;
+        }
+
+        .test-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 8px;
+            margin-bottom: 10px;
+        }
+
+        .status {
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 4px;
+        }
+
+        .success {
+            background: #10b981;
+        }
+
+        .error {
+            background: #ef4444;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>🔍 Image Loading Test</h1>
+    <p>This page tests if the Unsplash images are loading correctly.</p>
+
+    <div id="status"></div>
+
+    <h2>Test 1: Direct Image Tags</h2>
+    <div class="test-card">
+        <h3>Basic Plan Image</h3>
+        <img src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=600&h=400&fit=crop&q=80"
+            alt="Basic Plan" onload="imageLoaded('basic')" onerror="imageFailed('basic')">
+        <div id="basic-status"></div>
+    </div>
+
+    <div class="test-card">
+        <h3>Pro Plan Image</h3>
+        <img src="https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?w=600&h=400&fit=crop&q=80" alt="Pro Plan"
+            onload="imageLoaded('pro')" onerror="imageFailed('pro')">
+        <div id="pro-status"></div>
+    </div>
+
+    <div class="test-card">
+        <h3>Elite Plan Image</h3>
+        <img src="https://images.unsplash.com/photo-1540497077202-7c8a3999166f?w=600&h=400&fit=crop&q=80"
+            alt="Elite Plan" onload="imageLoaded('elite')" onerror="imageFailed('elite')">
+        <div id="elite-status"></div>
+    </div>
+
+    <h2>Test 2: JavaScript Rendering</h2>
+    <div id="js-test"></div>
+
+    <script>
+        let loadedCount = 0;
+        let failedCount = 0;
+
+        function imageLoaded(name) {
+            loadedCount++;
+            document.getElementById(name + '-status').innerHTML =
+                '<div class="status success">✅ Image loaded successfully!</div>';
+            updateOverallStatus();
+        }
+
+        function imageFailed(name) {
+            failedCount++;
+            document.getElementById(name + '-status').innerHTML =
+                '<div class="status error">❌ Image failed to load. Check internet connection.</div>';
+            updateOverallStatus();
+        }
+
+        function updateOverallStatus() {
+            const total = loadedCount + failedCount;
+            if (total === 3) {
+                const statusDiv = document.getElementById('status');
+                if (loadedCount === 3) {
+                    statusDiv.innerHTML = '<div class="status success"><strong>✅ All images loaded successfully!</strong><br>Your internet connection is working and Unsplash images are accessible.</div>';
+                } else {
+                    statusDiv.innerHTML = '<div class="status error"><strong>❌ Some images failed to load</strong><br>Loaded: ' + loadedCount + ' | Failed: ' + failedCount + '<br><br><strong>Possible causes:</strong><ul><li>No internet connection</li><li>Firewall blocking Unsplash</li><li>Unsplash is down</li></ul></div>';
+                }
+            }
+        }
+
+        // Test JavaScript rendering
+        const testData = {
+            name: 'Test Plan',
+            image: 'https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=600&h=400&fit=crop&q=80'
+        };
+
+        document.getElementById('js-test').innerHTML = `
+            <div class="test-card">
+                <h3>JavaScript Rendered Image</h3>
+                <img src="${testData.image}" alt="${testData.name}" style="width: 100%; height: 200px; object-fit: cover; border-radius: 8px;">
+                <p>If you see an image above, JavaScript rendering is working correctly.</p>
+            </div>
+        `;
+    </script>
+</body>
+
+</html>

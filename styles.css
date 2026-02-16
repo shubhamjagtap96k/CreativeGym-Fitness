@@ -569,60 +569,61 @@ a:focus-visible {
 }
 
 /* === Plans Section === */
-.price-toggle {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: var(--spacing-lg);
-    margin-bottom: var(--spacing-3xl);
+.duration-selector {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: var(--spacing-md);
+    max-width: 900px;
+    margin: 0 auto var(--spacing-3xl);
+    padding: var(--spacing-sm);
+    background: var(--bg-secondary);
+    border-radius: var(--radius-xl);
+    border: 1px solid var(--border-color);
 }
 
-.price-toggle__label {
-    font-weight: var(--font-weight-semibold);
-    color: var(--text-secondary);
+.duration-btn {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: var(--spacing-lg) var(--spacing-md);
+    background: transparent;
+    border: 2px solid transparent;
+    border-radius: var(--radius-lg);
     cursor: pointer;
-    transition: color var(--transition-fast);
-}
-
-.price-toggle__label[data-period="yearly"] {
-    display: flex;
-    align-items: center;
-    gap: var(--spacing-sm);
-}
-
-.price-toggle__badge {
-    padding: var(--spacing-xs) var(--spacing-sm);
-    background: var(--accent-gradient);
-    color: white;
-    font-size: var(--font-size-xs);
-    border-radius: var(--radius-full);
-    font-weight: var(--font-weight-semibold);
-}
-
-.price-toggle__switch {
+    transition: all var(--transition-base);
     position: relative;
-    width: 60px;
-    height: 32px;
+}
+
+.duration-btn:hover {
     background: var(--bg-tertiary);
-    border: 2px solid var(--border-color);
-    border-radius: var(--radius-full);
-    cursor: pointer;
-    transition: background-color var(--transition-base);
+    transform: translateY(-2px);
 }
 
-.price-toggle__slider {
-    position: absolute;
-    top: 2px;
-    left: 2px;
-    width: 24px;
-    height: 24px;
+.duration-btn.active {
     background: var(--accent-gradient);
-    border-radius: 50%;
-    transition: transform var(--transition-base);
+    border-color: var(--accent-primary);
+    box-shadow: var(--shadow-glow);
 }
 
-.price-toggle__switch.yearly .price-toggle__slider {
-    transform: translateX(28px);
+.duration-label {
+    font-size: var(--font-size-base);
+    font-weight: var(--font-weight-bold);
+    color: var(--text-primary);
+    margin-bottom: var(--spacing-xs);
+}
+
+.duration-btn.active .duration-label {
+    color: white;
+}
+
+.duration-desc {
+    font-size: var(--font-size-xs);
+    color: var(--text-secondary);
+    font-weight: var(--font-weight-medium);
+}
+
+.duration-btn.active .duration-desc {
+    color: rgba(255, 255, 255, 0.9);
 }
 
 .plans__grid {
@@ -633,13 +634,15 @@ a:focus-visible {
 
 .plan-card {
     position: relative;
-    padding: var(--spacing-2xl);
     background: var(--bg-secondary);
     border: 2px solid var(--border-color);
     border-radius: var(--radius-xl);
     transition: all var(--transition-base);
     opacity: 0;
     transform: translateY(20px);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
 }
 
 .plan-card.visible {
@@ -650,6 +653,57 @@ a:focus-visible {
     transform: translateY(-8px);
     border-color: var(--accent-primary);
     box-shadow: var(--shadow-lg), var(--shadow-glow);
+}
+
+.plan-card__image {
+    position: relative;
+    width: 100%;
+    height: 200px;
+    overflow: hidden;
+}
+
+.plan-card__image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform var(--transition-slow);
+}
+
+.plan-card:hover .plan-card__image img {
+    transform: scale(1.05);
+}
+
+.savings-badge {
+    position: absolute;
+    top: var(--spacing-md);
+    right: var(--spacing-md);
+    padding: var(--spacing-sm) var(--spacing-lg);
+    background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+    color: white;
+    font-size: var(--font-size-sm);
+    font-weight: var(--font-weight-bold);
+    border-radius: var(--radius-full);
+    box-shadow: var(--shadow-md);
+    animation: pulse 2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+
+    0%,
+    100% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.05);
+    }
+}
+
+.plan-card__content {
+    padding: var(--spacing-2xl);
+    flex: 1;
+    display: flex;
+    flex-direction: column;
 }
 
 .plan-card.featured {
@@ -674,14 +728,44 @@ a:focus-visible {
 .plan-card__name {
     font-size: var(--font-size-2xl);
     font-weight: var(--font-weight-bold);
-    margin-bottom: var(--spacing-md);
+    margin-bottom: var(--spacing-xs);
+}
+
+.plan-card__tagline {
+    font-size: var(--font-size-sm);
+    color: var(--text-secondary);
+    margin-bottom: var(--spacing-lg);
+    font-style: italic;
+}
+
+.plan-card__pricing {
+    margin-bottom: var(--spacing-xl);
+}
+
+.price-comparison {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-md);
+    margin-bottom: var(--spacing-sm);
+}
+
+.price-original {
+    font-size: var(--font-size-lg);
+    color: var(--text-tertiary);
+    text-decoration: line-through;
+}
+
+.price-savings {
+    font-size: var(--font-size-sm);
+    color: #10b981;
+    font-weight: var(--font-weight-bold);
 }
 
 .plan-card__price {
     display: flex;
     align-items: baseline;
     gap: var(--spacing-sm);
-    margin-bottom: var(--spacing-lg);
+    margin-bottom: var(--spacing-sm);
 }
 
 .price__currency {
@@ -690,7 +774,7 @@ a:focus-visible {
 }
 
 .price__amount {
-    font-size: var(--font-size-5xl);
+    font-size: var(--font-size-4xl);
     font-weight: var(--font-weight-extrabold);
     background: var(--accent-gradient);
     -webkit-background-clip: text;
@@ -701,6 +785,12 @@ a:focus-visible {
 .price__period {
     font-size: var(--font-size-base);
     color: var(--text-secondary);
+}
+
+.price-monthly-equiv {
+    font-size: var(--font-size-sm);
+    color: var(--text-tertiary);
+    margin: 0;
 }
 
 .plan-card__features {
@@ -723,10 +813,46 @@ a:focus-visible {
     flex-shrink: 0;
 }
 
-.plan-card__accordion {
+.plan-card__exclusive {
     margin-top: var(--spacing-lg);
-    border-top: 1px solid var(--border-color);
+    padding: var(--spacing-lg);
+    background: var(--bg-tertiary);
+    border-radius: var(--radius-lg);
+    border-left: 3px solid var(--accent-primary);
+}
+
+.plan-card__exclusive h4 {
+    font-size: var(--font-size-sm);
+    font-weight: var(--font-weight-bold);
+    color: var(--accent-primary);
+    margin-bottom: var(--spacing-md);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.plan-card__exclusive ul {
+    list-style: none;
+    margin: 0;
+}
+
+.plan-card__exclusive li {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--spacing-sm);
+    padding: var(--spacing-xs) 0;
+    color: var(--text-secondary);
+    font-size: var(--font-size-sm);
+}
+
+.plan-card__exclusive li::before {
+    content: '⭐';
+    flex-shrink: 0;
+}
+
+.plan-card__accordion {
+    margin-top: auto;
     padding-top: var(--spacing-lg);
+    border-top: 1px solid var(--border-color);
 }
 
 .accordion__trigger {
