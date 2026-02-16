@@ -199,7 +199,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 function initTheme() {
     document.documentElement.setAttribute('data-theme', currentTheme);
-    
+
     const themeToggle = document.getElementById('theme-toggle');
     themeToggle.addEventListener('click', toggleTheme);
 }
@@ -220,7 +220,7 @@ function initNavigation() {
     const navClose = document.getElementById('nav-close');
     const navMenu = document.getElementById('nav-menu');
     const navLinks = document.querySelectorAll('.nav__link');
-    
+
     // Sticky header on scroll
     window.addEventListener('scroll', () => {
         if (window.scrollY > 50) {
@@ -228,37 +228,37 @@ function initNavigation() {
         } else {
             header.classList.remove('scrolled');
         }
-        
+
         updateActiveNavLink();
     });
-    
+
     // Mobile menu toggle
     navToggle?.addEventListener('click', () => {
         navMenu.classList.add('show');
     });
-    
+
     navClose?.addEventListener('click', () => {
         navMenu.classList.remove('show');
     });
-    
+
     // Close menu on link click
     navLinks.forEach(link => {
         link.addEventListener('click', () => {
             navMenu.classList.remove('show');
         });
     });
-    
+
     // Smooth scroll with offset
     navLinks.forEach(link => {
         link.addEventListener('click', (e) => {
             e.preventDefault();
             const targetId = link.getAttribute('href');
             const targetSection = document.querySelector(targetId);
-            
+
             if (targetSection) {
                 const headerHeight = header.offsetHeight;
                 const targetPosition = targetSection.offsetTop - headerHeight;
-                
+
                 window.scrollTo({
                     top: targetPosition,
                     behavior: 'smooth'
@@ -271,18 +271,18 @@ function initNavigation() {
 function updateActiveNavLink() {
     const sections = document.querySelectorAll('.section');
     const navLinks = document.querySelectorAll('.nav__link');
-    
+
     let currentSection = '';
-    
+
     sections.forEach(section => {
         const sectionTop = section.offsetTop - 100;
         const sectionHeight = section.offsetHeight;
-        
+
         if (window.scrollY >= sectionTop && window.scrollY < sectionTop + sectionHeight) {
             currentSection = section.getAttribute('id');
         }
     });
-    
+
     navLinks.forEach(link => {
         link.classList.remove('active');
         if (link.getAttribute('href') === `#${currentSection}`) {
@@ -300,7 +300,7 @@ function initScrollAnimations() {
         threshold: 0.1,
         rootMargin: '0px 0px -50px 0px'
     };
-    
+
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
@@ -308,7 +308,7 @@ function initScrollAnimations() {
             }
         });
     }, observerOptions);
-    
+
     // Observe elements that should animate on scroll
     const animatedElements = document.querySelectorAll('.plan-card, .facility-card, .why-card');
     animatedElements.forEach(el => observer.observe(el));
@@ -320,11 +320,11 @@ function initScrollAnimations() {
 
 function initHeroStats() {
     const statNumbers = document.querySelectorAll('.stat__number[data-target]');
-    
+
     const observerOptions = {
         threshold: 0.5
     };
-    
+
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
@@ -334,9 +334,9 @@ function initHeroStats() {
             }
         });
     }, observerOptions);
-    
+
     statNumbers.forEach(stat => observer.observe(stat));
-    
+
     // Also animate counter numbers in Why Us section
     const counterNumbers = document.querySelectorAll('.counter-number[data-target]');
     counterNumbers.forEach(counter => observer.observe(counter));
@@ -346,7 +346,7 @@ function animateCounter(element, target, duration) {
     const start = 0;
     const increment = target / (duration / 16);
     let current = start;
-    
+
     const timer = setInterval(() => {
         current += increment;
         if (current >= target) {
@@ -364,7 +364,7 @@ function animateCounter(element, target, duration) {
 
 function renderPlans() {
     const plansGrid = document.getElementById('plans-grid');
-    
+
     plansGrid.innerHTML = plansData.map(plan => `
         <div class="plan-card ${plan.featured ? 'featured' : ''}">
             ${plan.featured ? '<span class="plan-badge">Best Value</span>' : ''}
@@ -393,19 +393,19 @@ function renderPlans() {
             </div>
         </div>
     `).join('');
-    
+
     // Initialize accordions
     initAccordions();
 }
 
 function initAccordions() {
     const accordionTriggers = document.querySelectorAll('.accordion__trigger');
-    
+
     accordionTriggers.forEach(trigger => {
         trigger.addEventListener('click', () => {
             const isExpanded = trigger.getAttribute('aria-expanded') === 'true';
             const content = trigger.nextElementSibling;
-            
+
             trigger.setAttribute('aria-expanded', !isExpanded);
             content.classList.toggle('open');
         });
@@ -418,7 +418,7 @@ function initAccordions() {
 
 function initPriceToggle() {
     const priceToggle = document.getElementById('price-toggle');
-    
+
     priceToggle.addEventListener('click', () => {
         isPricingYearly = !isPricingYearly;
         priceToggle.classList.toggle('yearly');
@@ -428,13 +428,13 @@ function initPriceToggle() {
 
 function updatePrices() {
     const priceAmounts = document.querySelectorAll('.price__amount');
-    
+
     priceAmounts.forEach(amount => {
         const monthly = parseInt(amount.getAttribute('data-monthly'));
         const yearly = parseInt(amount.getAttribute('data-yearly'));
-        
+
         const targetPrice = isPricingYearly ? Math.floor(yearly / 12) : monthly;
-        
+
         // Animate price change
         animateCounter(amount, targetPrice, 500);
     });
@@ -446,7 +446,7 @@ function updatePrices() {
 
 function renderFacilities() {
     const facilitiesGrid = document.getElementById('facilities-grid');
-    
+
     facilitiesGrid.innerHTML = facilitiesData.map(facility => `
         <div class="facility-card">
             <div class="facility-card__icon">${facility.icon}</div>
@@ -462,11 +462,11 @@ function renderFacilities() {
 
 function renderExercises() {
     const exercisesGrid = document.getElementById('exercises-grid');
-    
-    const filteredExercises = currentExerciseFilter === 'all' 
-        ? exercisesData 
+
+    const filteredExercises = currentExerciseFilter === 'all'
+        ? exercisesData
         : exercisesData.filter(ex => ex.category === currentExerciseFilter);
-    
+
     exercisesGrid.innerHTML = filteredExercises.map(exercise => `
         <div class="exercise-card" data-exercise='${JSON.stringify(exercise)}'>
             <h4 class="exercise-card__name">${exercise.name}</h4>
@@ -477,12 +477,12 @@ function renderExercises() {
 
 function initExerciseFilters() {
     const filterButtons = document.querySelectorAll('.filter-btn');
-    
+
     filterButtons.forEach(btn => {
         btn.addEventListener('click', () => {
             filterButtons.forEach(b => b.classList.remove('active'));
             btn.classList.add('active');
-            
+
             currentExerciseFilter = btn.getAttribute('data-category');
             renderExercises();
             initExerciseModal(); // Re-initialize modal listeners
@@ -496,17 +496,17 @@ function initExerciseModal() {
     const modalBody = document.getElementById('modal-body');
     const modalClose = modal.querySelector('.modal__close');
     const modalOverlay = modal.querySelector('.modal__overlay');
-    
+
     exerciseCards.forEach(card => {
         card.addEventListener('click', () => {
             const exercise = JSON.parse(card.getAttribute('data-exercise'));
             showExerciseModal(exercise);
         });
     });
-    
+
     modalClose.addEventListener('click', closeModal);
     modalOverlay.addEventListener('click', closeModal);
-    
+
     function showExerciseModal(exercise) {
         modalBody.innerHTML = `
             <h3 class="modal__title">${exercise.name}</h3>
@@ -524,12 +524,12 @@ function initExerciseModal() {
         modal.classList.add('active');
         document.body.style.overflow = 'hidden';
     }
-    
+
     function closeModal() {
         modal.classList.remove('active');
         document.body.style.overflow = '';
     }
-    
+
     // Close on Escape key
     document.addEventListener('keydown', (e) => {
         if (e.key === 'Escape' && modal.classList.contains('active')) {
@@ -544,7 +544,7 @@ function initExerciseModal() {
 
 function renderWhyUs() {
     const whyUsGrid = document.getElementById('why-us-grid');
-    
+
     whyUsGrid.innerHTML = whyUsData.map(item => `
         <div class="why-card">
             <div class="why-card__icon">${item.icon}</div>
@@ -561,7 +561,7 @@ function renderWhyUs() {
 function renderTestimonials() {
     const carouselTrack = document.getElementById('carousel-track');
     const carouselDots = document.getElementById('carousel-dots');
-    
+
     carouselTrack.innerHTML = testimonialsData.map(testimonial => `
         <div class="testimonial-card">
             <div class="testimonial-card__header">
@@ -582,7 +582,7 @@ function renderTestimonials() {
             </div>
         </div>
     `).join('');
-    
+
     carouselDots.innerHTML = testimonialsData.map((_, index) => `
         <button class="carousel__dot ${index === 0 ? 'active' : ''}" data-index="${index}" aria-label="Go to testimonial ${index + 1}"></button>
     `).join('');
@@ -594,29 +594,29 @@ function initCarousel() {
     const nextBtn = document.querySelector('.carousel__btn--next');
     const dots = document.querySelectorAll('.carousel__dot');
     const carousel = document.querySelector('.testimonials__carousel');
-    
+
     function updateCarousel() {
         const offset = -currentTestimonialIndex * 100;
         track.style.transform = `translateX(${offset}%)`;
-        
+
         dots.forEach((dot, index) => {
             dot.classList.toggle('active', index === currentTestimonialIndex);
         });
     }
-    
+
     function nextTestimonial() {
         currentTestimonialIndex = (currentTestimonialIndex + 1) % testimonialsData.length;
         updateCarousel();
     }
-    
+
     function prevTestimonial() {
         currentTestimonialIndex = (currentTestimonialIndex - 1 + testimonialsData.length) % testimonialsData.length;
         updateCarousel();
     }
-    
+
     prevBtn.addEventListener('click', prevTestimonial);
     nextBtn.addEventListener('click', nextTestimonial);
-    
+
     dots.forEach(dot => {
         dot.addEventListener('click', () => {
             currentTestimonialIndex = parseInt(dot.getAttribute('data-index'));
@@ -624,41 +624,41 @@ function initCarousel() {
             resetAutoplay();
         });
     });
-    
+
     // Auto-play
     function startAutoplay() {
         if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
             testimonialInterval = setInterval(nextTestimonial, 5000);
         }
     }
-    
+
     function stopAutoplay() {
         clearInterval(testimonialInterval);
     }
-    
+
     function resetAutoplay() {
         stopAutoplay();
         startAutoplay();
     }
-    
+
     carousel.addEventListener('mouseenter', stopAutoplay);
     carousel.addEventListener('mouseleave', startAutoplay);
-    
+
     startAutoplay();
-    
+
     // Swipe support for mobile
     let touchStartX = 0;
     let touchEndX = 0;
-    
+
     carousel.addEventListener('touchstart', (e) => {
         touchStartX = e.changedTouches[0].screenX;
     });
-    
+
     carousel.addEventListener('touchend', (e) => {
         touchEndX = e.changedTouches[0].screenX;
         handleSwipe();
     });
-    
+
     function handleSwipe() {
         if (touchStartX - touchEndX > 50) {
             nextTestimonial();
@@ -669,7 +669,7 @@ function initCarousel() {
             resetAutoplay();
         }
     }
-    
+
     // Keyboard navigation
     document.addEventListener('keydown', (e) => {
         if (e.key === 'ArrowLeft') prevTestimonial();
@@ -684,26 +684,26 @@ function initCarousel() {
 function initForms() {
     const contactForm = document.getElementById('contact-form');
     const newsletterForm = document.getElementById('newsletter-form');
-    
+
     contactForm.addEventListener('submit', (e) => {
         e.preventDefault();
-        
+
         const formData = new FormData(contactForm);
         const data = Object.fromEntries(formData);
-        
+
         console.log('Contact form submitted:', data);
-        
+
         showToast('Message sent successfully! We\'ll get back to you soon.');
         contactForm.reset();
     });
-    
+
     newsletterForm.addEventListener('submit', (e) => {
         e.preventDefault();
-        
+
         const email = newsletterForm.querySelector('input[type="email"]').value;
-        
+
         console.log('Newsletter subscription:', email);
-        
+
         showToast('Successfully subscribed to newsletter!');
         newsletterForm.reset();
     });
@@ -712,10 +712,10 @@ function initForms() {
 function showToast(message) {
     const toast = document.getElementById('toast');
     const toastMessage = toast.querySelector('.toast__message');
-    
+
     toastMessage.textContent = message;
     toast.classList.add('show');
-    
+
     setTimeout(() => {
         toast.classList.remove('show');
     }, 3000);
@@ -730,10 +730,10 @@ document.querySelectorAll('.magnetic').forEach(btn => {
         const rect = btn.getBoundingClientRect();
         const x = e.clientX - rect.left - rect.width / 2;
         const y = e.clientY - rect.top - rect.height / 2;
-        
+
         btn.style.transform = `translate(${x * 0.2}px, ${y * 0.2}px)`;
     });
-    
+
     btn.addEventListener('mouseleave', () => {
         btn.style.transform = '';
     });
